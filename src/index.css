@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-cream: #f7f2ea;
+  --color-cream-soft: #efe7da;
+  --color-ink: #201510;
+  --color-ink-soft: #4a3a30;
+  --color-coffee: #2a1c15;
+  --color-coffee-dark: #170f0b;
+  --color-rust: #bf5326;
+  --color-rust-dark: #9c4019;
+  --color-rust-light: #e2794a;
+  --color-mist: #8ba39c;
+  --color-mist-light: #d8e3df;
+  --color-gold: #c99a4a;
+
+  --animate-marquee: marquee 32s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background-color: var(--color-rust);
+  color: white;
+}
+
+.font-serif-heading {
+  font-family: var(--font-serif);
+  font-weight: 300;
+}
+
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-rust);
+  font-weight: 600;
+}
+
+.container-page {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-page {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
