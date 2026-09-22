@@ -35,7 +35,7 @@ export default function Regions() {
               </div>
               <div>
                 <SectionLabel>{region.altitude}</SectionLabel>
-                <h2 className="font-serif-heading text-4xl sm:text-5xl">{region.name}</h2>
+                <h2 className="section-heading">{region.name}</h2>
                 <p className="mt-2 text-xs font-semibold uppercase tracking-[0.15em] text-rust">
                   {region.flavorTag}
                 </p>

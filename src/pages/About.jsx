@@ -17,7 +17,8 @@ export default function About() {
       <section className="bg-cream py-24">
         <div className="container-page grid grid-cols-1 gap-14 lg:grid-cols-[1.1fr_1fr]">
           <div>
-            <SectionLabel>{story.title}</SectionLabel>
+            <SectionLabel>Về chúng tôi</SectionLabel>
+            <h2 className="section-heading">Câu chuyện Dien3ean</h2>
             {story.paragraphs.map((p, i) => (
               <p key={i} className="mt-5 text-base leading-relaxed text-ink-soft">
                 {p}
@@ -60,9 +61,7 @@ export default function About() {
       <section className="bg-coffee py-24 text-cream">
         <div className="container-page">
           <SectionLabel light>Bản sắc thương hiệu</SectionLabel>
-          <h2 className="font-serif-heading max-w-xl text-4xl leading-tight sm:text-5xl">
-            {brand.tagline}
-          </h2>
+          <h2 className="section-heading max-w-xl">{brand.tagline}</h2>
           <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
             {pillars.map((p) => (
               <div key={p.key} className="overflow-hidden rounded-2xl border border-cream/10 bg-coffee-dark">

@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import { nav, brand } from "../data/site";
+import { nav } from "../data/site";
 import Button from "./Button";
-import { useAuth } from "../lib/AuthContext";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const { user } = useAuth();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -38,7 +36,7 @@ export default function Navbar() {
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
-                `text-[13px] font-medium uppercase tracking-[0.1em] transition-colors ${
+                `nav-link text-[13px] font-medium uppercase tracking-[0.1em] transition-colors ${
                   isActive ? "text-rust-light" : "text-cream/80 hover:text-cream"
                 }`
               }
@@ -48,13 +46,7 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-4 lg:flex">
-          <Link
-            to="/tai-khoan"
-            className="text-[13px] font-medium uppercase tracking-[0.1em] text-cream/80 hover:text-cream"
-          >
-            {user ? user.email.split("@")[0] : "Đăng nhập"}
-          </Link>
+        <div className="hidden lg:block">
           <Button to="/lien-he" variant="primary">
             Liên hệ
           </Button>
@@ -94,13 +86,6 @@ export default function Navbar() {
                 {item.label}
               </NavLink>
             ))}
-            <Link
-              to="/tai-khoan"
-              onClick={() => setOpen(false)}
-              className="rounded-lg px-3 py-3 text-sm font-medium uppercase tracking-[0.1em] text-cream/80"
-            >
-              {user ? user.email.split("@")[0] : "Đăng nhập"}
-            </Link>
             <Link
               to="/lien-he"
               onClick={() => setOpen(false)}

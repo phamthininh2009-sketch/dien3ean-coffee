@@ -9,7 +9,7 @@ export default function ProductCard({ product }) {
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <span className="absolute left-4 top-4 rounded-full bg-ink/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-cream">
-          {product.weight}
+          {product.category}
         </span>
       </div>
       <div className="flex flex-1 flex-col p-6">
@@ -17,6 +17,10 @@ export default function ProductCard({ product }) {
         <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-soft">{product.desc}</p>
 
         <div className="mt-4 space-y-1.5 text-xs text-ink-soft">
+          <p>
+            <span className="font-semibold text-ink">Định lượng: </span>
+            {product.weight}
+          </p>
           <p>
             <span className="font-semibold text-ink">Hương vị: </span>
             {product.flavor.join(" • ")}

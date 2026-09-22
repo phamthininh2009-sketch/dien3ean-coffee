@@ -8,12 +8,10 @@ export default function LocationCard({ location }) {
         </span>
       </div>
       <div className="p-6">
-        <h3 className="font-serif-heading text-2xl">{location.name}</h3>
+        <h3 className="text-xl font-semibold text-ink">{location.name}</h3>
         <p className="mt-2 text-sm text-ink-soft">{location.address}</p>
-        <p className="mt-1 text-sm font-medium text-ink">{location.hours}</p>
-        <p className="mt-2 text-xs uppercase tracking-[0.1em] text-ink-soft">
-          {location.services.join(" · ")}
-        </p>
+        <p className="mt-1 text-sm text-ink-soft">{location.hours}</p>
+        <p className="mt-1 text-sm text-ink-soft">{location.services.join(" · ")}</p>
         <a
           href={location.mapLink}
           target="_blank"

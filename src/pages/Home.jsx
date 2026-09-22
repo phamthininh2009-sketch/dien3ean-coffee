@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import SectionLabel from "../components/SectionLabel";
 import Marquee from "../components/Marquee";
@@ -10,24 +9,22 @@ import {
   brand,
   pillars,
   regions as staticRegions,
-  productCategories as staticProductCategories,
   products as staticProducts,
   journeySteps,
   locations as staticLocations,
 } from "../data/site";
 import { useAsync } from "../hooks/useAsync";
-import { fetchRegions, fetchProductCategories, fetchProducts, fetchLocations } from "../lib/content";
+import { fetchRegions, fetchProducts, fetchLocations } from "../lib/content";
 
 export default function Home() {
   const { data: regions } = useAsync(fetchRegions, [], staticRegions);
-  const { data: productCategories } = useAsync(fetchProductCategories, [], staticProductCategories);
   const { data: products } = useAsync(fetchProducts, [], staticProducts);
   const { data: locations } = useAsync(fetchLocations, [], staticLocations);
 
   return (
     <>
       {/* ================= HERO / SLIDESHOW ================= */}
-      <section className="relative flex min-h-screen items-center overflow-hidden bg-coffee-dark text-cream">
+      <section className="relative flex min-h-[60vh] items-end overflow-hidden bg-coffee-dark pb-20 text-cream">
         <img
           src={img("heroMisty", { w: 1920 })}
           alt="Núi rừng Điện Biên trong sương sớm"
@@ -66,7 +63,7 @@ export default function Home() {
 
       {/* stats */}
       <section className="bg-coffee-dark py-10 text-cream">
-        <div className="container-page grid grid-cols-2 gap-8 sm:grid-cols-4">
+        <div className="container-page grid grid-cols-1 gap-8 sm:grid-cols-3">
           {brand.stats.map((s) => (
             <div key={s.label} className="text-center sm:text-left">
               <p className="font-serif-heading text-3xl text-rust-light md:text-4xl">{s.value}</p>
@@ -82,9 +79,7 @@ export default function Home() {
       <section className="bg-cream py-24">
         <div className="container-page">
           <SectionLabel>Về chúng tôi</SectionLabel>
-          <h2 className="font-serif-heading max-w-2xl text-4xl italic leading-tight sm:text-5xl">
-            {brand.tagline}
-          </h2>
+          <h2 className="section-heading max-w-2xl">{brand.tagline}</h2>
 
           <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
             {pillars.map((p) => (
@@ -118,10 +113,7 @@ export default function Home() {
         <div className="container-page">
           <SectionLabel light>Vùng trồng</SectionLabel>
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <h2 className="font-serif-heading max-w-xl text-4xl leading-tight sm:text-5xl">
-              <span className="italic text-cream/80">Từ vùng trồng,</span>
-              <br /> nơi địa hình tạo nên hương vị.
-            </h2>
+            <h2 className="section-heading max-w-xl">Từ vùng trồng, nơi địa hình tạo nên hương vị.</h2>
             <p className="max-w-md text-sm leading-relaxed text-cream/60">
               Điện Biên là điểm khởi đầu trong hành trình của DIEN3EAN. Từ Mường Ảng, Tỏa Tình, Pú Nhung
               đến Quài Tở, Búng Lao và Mường Chà, mỗi vùng đất mang những điều kiện tự nhiên và câu
@@ -149,47 +141,17 @@ export default function Home() {
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <SectionLabel>Sản phẩm</SectionLabel>
-              <h2 className="font-serif-heading max-w-xl text-4xl italic leading-tight sm:text-5xl">
-                Về sản phẩm
-              </h2>
+              <h2 className="section-heading max-w-xl">Coffee Collection</h2>
             </div>
             <Button to="/san-pham" variant="outline">
               Xem toàn bộ cửa hàng
             </Button>
           </div>
 
-          <div className="mt-14 grid grid-cols-2 gap-4 md:grid-cols-4">
-            {productCategories.map((c) => (
-              <Link
-                key={c.key}
-                to="/san-pham"
-                className="group relative h-64 overflow-hidden rounded-2xl border border-ink/10"
-              >
-                <img
-                  src={c.image}
-                  alt={c.name}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                <span className="absolute bottom-4 left-4 right-4 text-sm font-semibold text-white">
-                  {c.name}
-                </span>
-              </Link>
+          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {products.map((p) => (
+              <ProductCard key={p.slug} product={p} />
             ))}
-          </div>
-
-          <div className="mt-20">
-            <SectionLabel>Coffee Collection</SectionLabel>
-            <h3 className="font-serif-heading max-w-lg text-3xl leading-tight sm:text-4xl">
-              <span className="italic">Packaging as</span>
-              <br /> collectible art.
-            </h3>
-            <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {products.map((p) => (
-                <ProductCard key={p.slug} product={p} />
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -199,9 +161,7 @@ export default function Home() {
         <div className="container-page">
           <SectionLabel>Hành trình của hạt cà phê</SectionLabel>
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <h2 className="font-serif-heading max-w-xl text-4xl leading-tight sm:text-5xl">
-              <span className="italic text-ink-soft">Giữ trọn</span> những gì vùng đất tạo nên.
-            </h2>
+            <h2 className="section-heading max-w-xl">Giữ trọn những gì vùng đất tạo nên.</h2>
             <p className="max-w-md text-sm leading-relaxed text-ink-soft">
               Mỗi lô cà phê Dien3ean được theo dõi từ vùng trồng, thu hái, sơ chế đến tuyển chọn thành
               phẩm. Chúng tôi ưu tiên sự minh bạch về nguồn gốc và những phương pháp giúp giữ lại đặc
@@ -237,9 +197,7 @@ export default function Home() {
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <SectionLabel>Showroom</SectionLabel>
-              <h2 className="font-serif-heading max-w-xl text-4xl leading-tight sm:text-5xl">
-                Điểm trải nghiệm <span className="italic text-ink-soft">của Dien3ean</span>
-              </h2>
+              <h2 className="section-heading max-w-xl">Điểm trải nghiệm của Dien3ean</h2>
               <p className="mt-4 max-w-md text-sm leading-relaxed text-ink-soft">Điểm đến gần bạn.</p>
             </div>
             <Button to="/showroom" variant="outline">

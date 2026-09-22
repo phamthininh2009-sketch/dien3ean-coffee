@@ -5,7 +5,7 @@ const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 if (!url || !anonKey) {
   console.warn(
-    "Thiếu VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY — kiểm tra file .env",
+    "Thiếu VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY, kiểm tra file .env",
   );
 }
 

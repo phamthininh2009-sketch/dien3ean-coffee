@@ -20,6 +20,7 @@ function mapProduct(p) {
     flavor: p.flavor,
     roast: p.roast,
     form: p.form,
+    category: p.category,
     image: p.image_url,
   };
 }
@@ -104,5 +105,18 @@ export async function submitContactMessage({ name, phone, email, message }) {
   const { error } = await supabase
     .from("contact_messages")
     .insert({ name, phone, email, message });
+  if (error) throw error;
+}
+
+export async function submitReservation({ name, phone, date, time, guests, locationKey, note }) {
+  const { error } = await supabase.from("reservations").insert({
+    name,
+    phone,
+    visit_date: date,
+    visit_time: time,
+    guests,
+    location_key: locationKey,
+    note,
+  });
   if (error) throw error;
 }

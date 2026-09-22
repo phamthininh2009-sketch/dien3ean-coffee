@@ -6,27 +6,26 @@ export const nav = [
   { label: "Sản phẩm", to: "/san-pham" },
   { label: "Showroom", to: "/showroom" },
   { label: "Blog", to: "/blog" },
+  { label: "Đặt chỗ", to: "/dat-cho" },
 ];
 
 export const brand = {
   name: "DIEN3EAN COFFEE",
-  tagline: "MIST ◆ MOUNTAIN ◆ MAN",
+  tagline: "Mist ◆ Mountain ◆ Man",
   heroTitle: "NƠI ĐỊA HÌNH TẠO NÊN HƯƠNG VỊ",
   heroDesc:
     "DIEN3EAN COFFEE mang bản sắc Điện Biên, nơi sương, độ cao và con người cùng định hình hương vị nguyên bản của từng hạt cà phê.",
   marqueeWords: [
-    "SINCE ĐIỆN BIÊN",
     "ARABICA TÂY BẮC",
-    "ĐỘ CAO 1.000 – 1.500M",
+    "ĐỘ CAO 800 – 1.500M",
     "SƠ CHẾ THỦ CÔNG",
     "RANG THEO LOT",
     "MINH BẠCH NGUỒN GỐC",
     "HƯƠNG VỊ NGUYÊN BẢN",
   ],
   stats: [
-    { value: "5", label: "VÙNG TRỒNG" },
-    { value: "1.000–1.500", label: "ĐỘ CAO (M)" },
-    { value: "100%", label: "ARABICA ĐIỆN BIÊN" },
+    { value: "800 – 1.500", label: "ĐỘ CAO (M)" },
+    { value: "100%", label: "ARABICA TÂY BẮC" },
     { value: "02", label: "SHOWROOM HÀ NỘI" },
   ],
   email: "info@dien3ean.vn",
@@ -38,19 +37,19 @@ export const brand = {
 export const pillars = [
   {
     key: "mist",
-    title: "MIST — SƯƠNG",
+    title: "Mist - Sương",
     desc: "Khí hậu mát và sự chênh lệch nhiệt độ ngày – đêm của vùng núi tạo nên điều kiện đặc trưng cho cây cà phê sinh trưởng và quả phát triển.",
     image: img("seaOfClouds"),
   },
   {
     key: "mountain",
-    title: "MOUNTAIN — NÚI",
+    title: "Mountain - Núi",
     desc: "Độ cao, địa hình, thổ nhưỡng và khí hậu của từng vùng góp phần hình thành đặc tính riêng của cà phê.",
     image: img("terracesAerial"),
   },
   {
     key: "man",
-    title: "MAN — CON NGƯỜI",
+    title: "Man - Con người",
     desc: "Từ người trồng, thu hái, sơ chế đến người rang và pha chế – con người là mắt xích kết nối vùng đất với mỗi tách cà phê Dien3ean.",
     image: img("rawBeansHand"),
   },
@@ -115,6 +114,7 @@ export const products = [
     flavor: ["Thanh", "Ngọt", "Cân bằng"],
     roast: ["Nhạt", "Vừa"],
     form: ["Hạt", "Xay"],
+    category: "Cà phê theo vùng trồng",
     image: img("roastedSpoon"),
   },
   {
@@ -125,16 +125,18 @@ export const products = [
     flavor: ["Hoa", "Mật ong", "Trái cây"],
     roast: ["Nhạt", "Vừa"],
     form: ["Hạt", "Xay"],
+    category: "Cà phê theo vùng trồng",
     image: img("espressoBeansCloseup"),
   },
   {
     slug: "toa-tinh",
     name: "CÀ PHÊ TỎA TÌNH",
     weight: "250g",
-    desc: "Lớn lên giữa những vùng cao Tây Bắc, cà phê Tỏa Tình thể hiện rõ nét sự giao hòa giữa độ cao, khí hậu và thổ nhưỡng — tạo nên một trải nghiệm mang dấu ấn riêng của vùng đất.",
+    desc: "Lớn lên giữa những vùng cao Tây Bắc, cà phê Tỏa Tình thể hiện rõ nét sự giao hòa giữa độ cao, khí hậu và thổ nhưỡng, tạo nên một trải nghiệm mang dấu ấn riêng của vùng đất.",
     flavor: ["Trái cây", "Ngọt dịu", "Thanh sáng"],
     roast: ["Nhạt", "Vừa"],
     form: ["Hạt", "Xay"],
+    category: "Cà phê theo vùng trồng",
     image: img("greenBeansPile"),
   },
 ];

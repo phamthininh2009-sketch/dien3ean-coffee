@@ -34,7 +34,7 @@ export default function Contact() {
       <PageHero
         label="Liên hệ"
         title="Kết nối cùng Dien3ean"
-        desc="Hãy bắt đầu một câu chuyện cùng chúng tôi. Từ nguồn cà phê, vùng nguyên liệu đến những cơ hội hợp tác — DIEN3EAN luôn sẵn sàng lắng nghe và đồng hành cùng bạn."
+        desc="Hãy bắt đầu một câu chuyện cùng chúng tôi. Từ nguồn cà phê, vùng nguyên liệu đến những cơ hội hợp tác, DIEN3EAN luôn sẵn sàng lắng nghe và đồng hành cùng bạn."
         image={img("cafeMachineSteam", { w: 1920 })}
       />
 
