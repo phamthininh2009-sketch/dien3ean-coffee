@@ -30,8 +30,8 @@ export default function Products() {
 
       <section className="bg-cream py-24">
         <div className="container-page">
-          <SectionLabel>Coffee Collection</SectionLabel>
-          <h3 className="section-heading max-w-lg">Packaging as collectible art.</h3>
+          <SectionLabel>Bộ sưu tập cà phê</SectionLabel>
+          <h2 className="section-heading max-w-lg">Cà phê theo từng vùng đất Tây Bắc</h2>
 
           <div className="mt-10 flex flex-wrap gap-2">
             {tabs.map((tab) => (

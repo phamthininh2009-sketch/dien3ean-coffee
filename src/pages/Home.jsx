@@ -55,7 +55,7 @@ export default function Home() {
         </div>
 
         <div className="absolute bottom-24 right-8 hidden -rotate-90 items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.3em] text-cream/50 md:flex">
-          <span className="h-px w-8 bg-cream/40" /> Scroll
+          <span className="h-px w-8 bg-cream/40" /> Cuộn xuống
         </div>
       </section>
 
@@ -112,14 +112,12 @@ export default function Home() {
       <section className="bg-coffee py-24 text-cream">
         <div className="container-page">
           <SectionLabel light>Vùng trồng</SectionLabel>
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <h2 className="section-heading max-w-xl">Từ vùng trồng, nơi địa hình tạo nên hương vị.</h2>
-            <p className="max-w-md text-sm leading-relaxed text-cream/60">
-              Điện Biên là điểm khởi đầu trong hành trình của DIEN3EAN. Từ Mường Ảng, Tỏa Tình, Pú Nhung
-              đến Quài Tở, Búng Lao và Mường Chà, mỗi vùng đất mang những điều kiện tự nhiên và câu
-              chuyện riêng.
-            </p>
-          </div>
+          <h2 className="section-heading max-w-2xl">Từ vùng trồng, nơi địa hình tạo nên hương vị.</h2>
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-cream/60">
+            Điện Biên là điểm khởi đầu trong hành trình của DIEN3EAN. Từ Mường Ảng, Tỏa Tình, Pú Nhung
+            đến Quài Tở, Búng Lao và Mường Chà, mỗi vùng đất mang những điều kiện tự nhiên và câu
+            chuyện riêng.
+          </p>
 
           <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {regions.map((r) => (
@@ -141,10 +139,10 @@ export default function Home() {
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <SectionLabel>Sản phẩm</SectionLabel>
-              <h2 className="section-heading max-w-xl">Coffee Collection</h2>
+              <h2 className="section-heading max-w-xl">Bộ sưu tập cà phê</h2>
             </div>
             <Button to="/san-pham" variant="outline">
-              Xem toàn bộ cửa hàng
+              Xem toàn bộ sản phẩm
             </Button>
           </div>
 
@@ -160,14 +158,12 @@ export default function Home() {
       <section className="bg-white py-24">
         <div className="container-page">
           <SectionLabel>Hành trình của hạt cà phê</SectionLabel>
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <h2 className="section-heading max-w-xl">Giữ trọn những gì vùng đất tạo nên.</h2>
-            <p className="max-w-md text-sm leading-relaxed text-ink-soft">
-              Mỗi lô cà phê Dien3ean được theo dõi từ vùng trồng, thu hái, sơ chế đến tuyển chọn thành
-              phẩm. Chúng tôi ưu tiên sự minh bạch về nguồn gốc và những phương pháp giúp giữ lại đặc
-              tính tự nhiên của từng vùng cà phê Điện Biên.
-            </p>
-          </div>
+          <h2 className="section-heading max-w-2xl">Giữ trọn những gì vùng đất tạo nên.</h2>
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-soft">
+            Mỗi lô cà phê Dien3ean được theo dõi từ vùng trồng, thu hái, sơ chế đến tuyển chọn thành
+            phẩm. Chúng tôi ưu tiên sự minh bạch về nguồn gốc và những phương pháp giúp giữ lại đặc
+            tính tự nhiên của từng vùng cà phê Điện Biên.
+          </p>
 
           <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {journeySteps.map((step) => (

@@ -24,13 +24,8 @@ export default function Footer() {
       <div className="container-page py-16">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.4fr_2fr]">
           <div>
-            <Link to="/" className="flex items-center gap-2 text-cream">
-              <svg width="34" height="34" viewBox="0 0 32 32" fill="none">
-                <rect width="32" height="32" rx="8" fill="#BF5326" />
-                <ellipse cx="16" cy="16" rx="9" ry="11" fill="#F7F2EA" />
-                <path d="M16 5 C 13 11, 13 21, 16 27" stroke="#BF5326" strokeWidth="1.6" fill="none" />
-              </svg>
-              <span className="font-serif-heading text-2xl tracking-wide">DIEN3EAN</span>
+            <Link to="/" className="inline-block">
+              <img src="/logo.png" alt="DIEN3EAN COFFEE" className="h-24 w-auto" />
             </Link>
             <p className="mt-4 text-xs font-semibold uppercase tracking-[0.25em] text-rust-light">
               {brand.tagline}

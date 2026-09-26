@@ -21,13 +21,8 @@ export default function Navbar() {
       }`}
     >
       <div className="container-page flex h-20 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 text-cream" onClick={() => setOpen(false)}>
-          <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
-            <rect width="32" height="32" rx="8" fill="#BF5326" />
-            <ellipse cx="16" cy="16" rx="9" ry="11" fill="#F7F2EA" />
-            <path d="M16 5 C 13 11, 13 21, 16 27" stroke="#BF5326" strokeWidth="1.6" fill="none" />
-          </svg>
-          <span className="font-serif-heading text-xl tracking-wide">DIEN3EAN</span>
+        <Link to="/" className="flex items-center" onClick={() => setOpen(false)}>
+          <img src="/logo-mark.png" alt="DIEN3EAN COFFEE" className="h-12 w-auto" />
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">

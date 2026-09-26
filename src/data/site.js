@@ -6,7 +6,6 @@ export const nav = [
   { label: "Sản phẩm", to: "/san-pham" },
   { label: "Showroom", to: "/showroom" },
   { label: "Blog", to: "/blog" },
-  { label: "Đặt chỗ", to: "/dat-cho" },
 ];
 
 export const brand = {
@@ -171,21 +170,21 @@ export const journeySteps = [
 export const locations = [
   {
     key: "joy-plus",
-    tag: "DINE-IN",
+    tag: "NHÀ HÀNG",
     name: "Nhà hàng Joy Plus",
     address: "26 Nguyễn Công Hoan, Giảng Võ, Ba Đình, Hà Nội",
     hours: "07:00 – 16:00",
-    services: ["Dine-in", "Thưởng thức tại chỗ", "Takeaway"],
+    services: ["Thưởng thức tại chỗ", "Mang đi"],
     mapLink: "https://maps.app.goo.gl/WV8KB8Rg4uzzKmzL6",
     image: img("cafeMachineSteam"),
   },
   {
     key: "dinh-dong-mon",
-    tag: "HERITAGE",
+    tag: "PHỐ CỔ",
     name: "Đình Đông Môn",
     address: "8 P. Hàng Cân, Phố cổ Hà Nội, Hoàn Kiếm, Hà Nội",
     hours: "07:00 – 16:00",
-    services: ["Thưởng thức tại chỗ", "Takeaway", "Bộ quà tặng"],
+    services: ["Thưởng thức tại chỗ", "Mang đi", "Bộ quà tặng"],
     mapLink: "https://maps.app.goo.gl/PDqw5JiygoADhJd18",
     image: img("baristaLatteHeart"),
   },

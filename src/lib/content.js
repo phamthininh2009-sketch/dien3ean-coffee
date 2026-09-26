@@ -108,15 +108,19 @@ export async function submitContactMessage({ name, phone, email, message }) {
   if (error) throw error;
 }
 
-export async function submitReservation({ name, phone, date, time, guests, locationKey, note }) {
-  const { error } = await supabase.from("reservations").insert({
-    name,
-    phone,
-    visit_date: date,
-    visit_time: time,
-    guests,
-    location_key: locationKey,
-    note,
-  });
+export async function fetchProductBySlug(slug) {
+  const { data, error } = await supabase.from("products").select("*").eq("slug", slug).maybeSingle();
   if (error) throw error;
+  return data ? mapProduct(data) : null;
+}
+
+export async function fetchBlogPostBySlug(slug) {
+  const { data, error } = await supabase
+    .from("blog_posts")
+    .select("*, blog_categories(name, key)")
+    .eq("slug", slug)
+    .not("published_at", "is", null)
+    .maybeSingle();
+  if (error) throw error;
+  return data;
 }

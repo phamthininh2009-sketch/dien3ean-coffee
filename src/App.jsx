@@ -7,8 +7,8 @@ export default function App() {
   const location = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
-  }, [location.pathname]);
+    if (!location.hash) window.scrollTo({ top: 0, behavior: "instant" });
+  }, [location.pathname, location.hash]);
 
   return (
     <div className="flex min-h-screen flex-col bg-cream">
