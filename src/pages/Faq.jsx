@@ -1,8 +1,7 @@
 import { useState } from "react";
 import PageHero from "../components/PageHero";
 import SectionLabel from "../components/SectionLabel";
-import { img } from "../data/images";
-import { faqs } from "../data/site";
+import { useSiteContent, usePageHero } from "../lib/SiteContent";
 
 function FaqItem({ item, isOpen, onToggle }) {
   return (
@@ -33,15 +32,16 @@ function FaqItem({ item, isOpen, onToggle }) {
 
 export default function Faq() {
   const [openIndex, setOpenIndex] = useState(0);
+  const { faqs } = useSiteContent();
+  const hero = usePageHero("faq", {
+    label: "FAQ",
+    title: "Câu hỏi thường gặp",
+    desc: "Những điều đối tác và khách hàng thường muốn biết về nguồn gốc, sản phẩm và hợp tác cùng DIEN3EAN.",
+  });
 
   return (
     <>
-      <PageHero
-        label="FAQ"
-        title="Câu hỏi thường gặp"
-        desc="Những điều đối tác và khách hàng thường muốn biết về nguồn gốc, sản phẩm và hợp tác cùng DIEN3EAN."
-        image={img("roastLevelsBowls", { w: 1920 })}
-      />
+      <PageHero {...hero} />
 
       <section className="bg-cream py-24">
         <div className="container-page max-w-3xl">

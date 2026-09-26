@@ -1,21 +1,22 @@
 import PageHero from "../components/PageHero";
 import SectionLabel from "../components/SectionLabel";
-import { img } from "../data/images";
-import { locations as staticLocations, brand } from "../data/site";
+import { locations as staticLocations } from "../data/site";
 import { useAsync } from "../hooks/useAsync";
 import { fetchLocations } from "../lib/content";
+import { useSiteContent, usePageHero } from "../lib/SiteContent";
 
 export default function Showroom() {
   const { data: locations } = useAsync(fetchLocations, [], staticLocations);
+  const { brand } = useSiteContent();
+  const hero = usePageHero("showroom", {
+    label: "Showroom",
+    title: "Điểm trải nghiệm của Dien3ean",
+    desc: "Khám phá những không gian nơi bạn có thể thưởng thức cà phê DIEN3EAN và cảm nhận câu chuyện từ những vùng đất Tây Bắc.",
+  });
 
   return (
     <>
-      <PageHero
-        label="Showroom"
-        title="Điểm trải nghiệm của Dien3ean"
-        desc="Khám phá những không gian nơi bạn có thể thưởng thức cà phê DIEN3EAN và cảm nhận câu chuyện từ những vùng đất Tây Bắc."
-        image={img("cafeMachineSteam", { w: 1920 })}
-      />
+      <PageHero {...hero} />
 
       <section className="bg-cream py-24">
         <div className="container-page">

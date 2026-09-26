@@ -108,6 +108,12 @@ export async function submitContactMessage({ name, phone, email, message }) {
   if (error) throw error;
 }
 
+export async function fetchSiteSettings() {
+  const { data, error } = await supabase.from("site_settings").select("key, value");
+  if (error) throw error;
+  return Object.fromEntries(data.map((row) => [row.key, row.value]));
+}
+
 export async function fetchProductBySlug(slug) {
   const { data, error } = await supabase.from("products").select("*").eq("slug", slug).maybeSingle();
   if (error) throw error;

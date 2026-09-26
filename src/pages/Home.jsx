@@ -4,29 +4,27 @@ import Marquee from "../components/Marquee";
 import RegionCard from "../components/RegionCard";
 import ProductCard from "../components/ProductCard";
 import LocationCard from "../components/LocationCard";
-import { img } from "../data/images";
 import {
-  brand,
-  pillars,
   regions as staticRegions,
   products as staticProducts,
-  journeySteps,
   locations as staticLocations,
 } from "../data/site";
 import { useAsync } from "../hooks/useAsync";
 import { fetchRegions, fetchProducts, fetchLocations } from "../lib/content";
+import { useSiteContent } from "../lib/SiteContent";
 
 export default function Home() {
   const { data: regions } = useAsync(fetchRegions, [], staticRegions);
   const { data: products } = useAsync(fetchProducts, [], staticProducts);
   const { data: locations } = useAsync(fetchLocations, [], staticLocations);
+  const { brand, pillars, journey_steps: journeySteps, page_images: pageImages } = useSiteContent();
 
   return (
     <>
       {/* ================= HERO / SLIDESHOW ================= */}
       <section className="relative flex min-h-[60vh] items-end overflow-hidden bg-coffee-dark pb-20 text-cream">
         <img
-          src={img("heroMisty", { w: 1920 })}
+          src={pageImages.home}
           alt="Núi rừng Điện Biên trong sương sớm"
           className="absolute inset-0 h-full w-full object-cover opacity-50"
         />
@@ -34,7 +32,7 @@ export default function Home() {
 
         <div className="container-page relative pt-24">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-rust-light">
-            ĐIỆN BIÊN · TÂY BẮC VIỆT NAM
+            {brand.heroEyebrow}
           </p>
           <h1 className="font-serif-heading mt-6 max-w-4xl text-[13vw] leading-[0.95] sm:text-6xl md:text-7xl lg:text-[5.5rem]">
             {brand.name}

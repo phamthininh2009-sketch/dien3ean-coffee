@@ -3,15 +3,20 @@ import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero";
 import SectionLabel from "../components/SectionLabel";
 import ProductCard from "../components/ProductCard";
-import { img } from "../data/images";
 import { productCategories as staticProductCategories, products as staticProducts } from "../data/site";
 import { useAsync } from "../hooks/useAsync";
 import { fetchProductCategories, fetchProducts } from "../lib/content";
+import { usePageHero } from "../lib/SiteContent";
 
 export default function Products() {
   const { data: productCategories } = useAsync(fetchProductCategories, [], staticProductCategories);
   const { data: products } = useAsync(fetchProducts, [], staticProducts);
   const [activeTab, setActiveTab] = useState("Tất cả");
+  const hero = usePageHero("products", {
+    label: "Sản phẩm",
+    title: "Cà phê từ Điện Biên",
+    desc: "Từ hạt nguyên bản đến những tuyển chọn dành cho thưởng thức và trao tặng. Khám phá hương vị Tây Bắc qua từng vùng trồng, từng mức rang và từng cách pha.",
+  });
 
   const tabs = useMemo(() => ["Tất cả", ...productCategories.map((c) => c.name)], [productCategories]);
   const filteredProducts = useMemo(
@@ -21,12 +26,7 @@ export default function Products() {
 
   return (
     <>
-      <PageHero
-        label="Sản phẩm"
-        title="Cà phê từ Điện Biên"
-        desc="Từ hạt nguyên bản đến những tuyển chọn dành cho thưởng thức và trao tặng. Khám phá hương vị Tây Bắc qua từng vùng trồng, từng mức rang và từng cách pha."
-        image={img("roastLevelsBowls", { w: 1920 })}
-      />
+      <PageHero {...hero} />
 
       <section className="bg-cream py-24">
         <div className="container-page">

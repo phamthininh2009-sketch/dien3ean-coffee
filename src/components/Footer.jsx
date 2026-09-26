@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { brand, footerColumns } from "../data/site";
+import { footerColumns } from "../data/site";
+import { useSiteContent } from "../lib/SiteContent";
 
 function IconInstagram(props) {
   return (
@@ -19,6 +20,8 @@ function IconFacebook(props) {
 }
 
 export default function Footer() {
+  const { brand } = useSiteContent();
+
   return (
     <footer className="bg-coffee-dark text-cream/80">
       <div className="container-page py-16">

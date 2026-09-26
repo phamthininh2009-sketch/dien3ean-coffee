@@ -1,18 +1,15 @@
 import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero";
 import SectionLabel from "../components/SectionLabel";
-import { img } from "../data/images";
-import { partners, brand } from "../data/site";
+import { useSiteContent } from "../lib/SiteContent";
 
 export default function Partners() {
+  const { partners, brand } = useSiteContent();
+  const bullets = partners.bullets || [];
+
   return (
     <>
-      <PageHero
-        label="Đối tác"
-        title={partners.title}
-        desc={partners.desc}
-        image={partners.image}
-      />
+      <PageHero label="Đối tác" title={partners.title} desc={partners.desc} image={partners.image} />
 
       <section className="bg-cream py-24">
         <div className="container-page grid grid-cols-1 gap-14 lg:grid-cols-[1.1fr_1fr]">
@@ -22,10 +19,9 @@ export default function Partners() {
             <p className="mt-5 text-base leading-relaxed text-ink-soft">{partners.desc2}</p>
 
             <ul className="mt-8 space-y-3 text-sm text-ink-soft">
-              <li>• Nhà nhập khẩu & nhà phân phối cà phê nhân xanh</li>
-              <li>• Đối tác rang xay theo hồ sơ hương vị riêng</li>
-              <li>• Doanh nghiệp F&B: quán cà phê, nhà hàng, khách sạn, văn phòng</li>
-              <li>• Hỗ trợ thử mẫu và tư vấn trước khi hợp tác</li>
+              {bullets.map((item, i) => (
+                <li key={i}>• {item}</li>
+              ))}
             </ul>
 
             <div className="mt-10 flex flex-wrap gap-4">

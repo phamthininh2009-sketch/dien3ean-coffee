@@ -2,15 +2,20 @@ import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import PageHero from "../components/PageHero";
 import SectionLabel from "../components/SectionLabel";
-import { img } from "../data/images";
 import { regions as staticRegions, products as staticProducts } from "../data/site";
 import { useAsync } from "../hooks/useAsync";
 import { fetchRegions, fetchProducts } from "../lib/content";
+import { usePageHero } from "../lib/SiteContent";
 
 export default function Regions() {
   const { data: regions } = useAsync(fetchRegions, [], staticRegions);
   const { data: products } = useAsync(fetchProducts, [], staticProducts);
   const { hash } = useLocation();
+  const hero = usePageHero("regions", {
+    label: "Vùng trồng",
+    title: "Từ vùng trồng, nơi địa hình tạo nên hương vị",
+    desc: "Điện Biên là điểm khởi đầu trong hành trình của DIEN3EAN. Từ Mường Ảng, Tỏa Tình, Pú Nhung đến Quài Tở, Búng Lao và Mường Chà, mỗi vùng đất mang những điều kiện tự nhiên và câu chuyện riêng.",
+  });
 
   useEffect(() => {
     if (!hash) return;
@@ -20,12 +25,7 @@ export default function Regions() {
 
   return (
     <>
-      <PageHero
-        label="Vùng trồng"
-        title="Từ vùng trồng, nơi địa hình tạo nên hương vị"
-        desc="Điện Biên là điểm khởi đầu trong hành trình của DIEN3EAN. Từ Mường Ảng, Tỏa Tình, Pú Nhung đến Quài Tở, Búng Lao và Mường Chà, mỗi vùng đất mang những điều kiện tự nhiên và câu chuyện riêng."
-        image={img("terracesAerial", { w: 1920 })}
-      />
+      <PageHero {...hero} />
 
       <section className="bg-cream py-24">
         <div className="container-page space-y-20">

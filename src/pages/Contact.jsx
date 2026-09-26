@@ -1,11 +1,16 @@
 import { useState } from "react";
 import PageHero from "../components/PageHero";
 import SectionLabel from "../components/SectionLabel";
-import { img } from "../data/images";
-import { brand } from "../data/site";
 import { submitContactMessage } from "../lib/content";
+import { useSiteContent, usePageHero } from "../lib/SiteContent";
 
 export default function Contact() {
+  const { brand } = useSiteContent();
+  const hero = usePageHero("contact", {
+    label: "Liên hệ",
+    title: "Kết nối cùng Dien3ean",
+    desc: "Hãy bắt đầu một câu chuyện cùng chúng tôi. Từ nguồn cà phê, vùng nguyên liệu đến những cơ hội hợp tác, DIEN3EAN luôn sẵn sàng lắng nghe và đồng hành cùng bạn.",
+  });
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -31,12 +36,7 @@ export default function Contact() {
 
   return (
     <>
-      <PageHero
-        label="Liên hệ"
-        title="Kết nối cùng Dien3ean"
-        desc="Hãy bắt đầu một câu chuyện cùng chúng tôi. Từ nguồn cà phê, vùng nguyên liệu đến những cơ hội hợp tác, DIEN3EAN luôn sẵn sàng lắng nghe và đồng hành cùng bạn."
-        image={img("cafeMachineSteam", { w: 1920 })}
-      />
+      <PageHero {...hero} />
 
       <section className="bg-cream py-24">
         <div className="container-page grid grid-cols-1 gap-14 lg:grid-cols-[1fr_1.1fr]">
@@ -52,7 +52,7 @@ export default function Contact() {
                 <span className="block text-xs font-semibold uppercase tracking-[0.15em] text-rust">
                   Địa chỉ
                 </span>
-                26 Nguyễn Công Hoan, Giảng Võ, Ba Đình, Hà Nội
+                {brand.address}
               </div>
               <div>
                 <span className="block text-xs font-semibold uppercase tracking-[0.15em] text-rust">

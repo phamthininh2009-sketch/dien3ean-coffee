@@ -2,15 +2,20 @@ import { useMemo, useState } from "react";
 import PageHero from "../components/PageHero";
 import SectionLabel from "../components/SectionLabel";
 import BlogCard from "../components/BlogCard";
-import { img } from "../data/images";
 import { blogCategories as staticBlogCategories } from "../data/site";
 import { useAsync } from "../hooks/useAsync";
 import { fetchBlogCategories, fetchPublishedBlogPosts } from "../lib/content";
+import { usePageHero } from "../lib/SiteContent";
 
 export default function Blog() {
   const { data: blogCategories } = useAsync(fetchBlogCategories, [], staticBlogCategories);
   const { data: posts } = useAsync(fetchPublishedBlogPosts, [], []);
   const [activeTab, setActiveTab] = useState("Tất cả");
+  const hero = usePageHero("blog", {
+    label: "Blog",
+    title: "Những câu chuyện phía sau hạt cà phê",
+    desc: "Từ vùng trồng, mùa vụ và người nông dân đến nghệ thuật rang, cách pha và những trải nghiệm cùng cà phê. DIEN3EAN kể lại hành trình của những hạt cà phê Điện Biên và Tây Bắc qua từng câu chuyện.",
+  });
 
   const tabs = useMemo(() => ["Tất cả", ...blogCategories.map((c) => c.name)], [blogCategories]);
   const filteredPosts = useMemo(
@@ -20,12 +25,7 @@ export default function Blog() {
 
   return (
     <>
-      <PageHero
-        label="Blog"
-        title="Những câu chuyện phía sau hạt cà phê"
-        desc="Từ vùng trồng, mùa vụ và người nông dân đến nghệ thuật rang, cách pha và những trải nghiệm cùng cà phê. DIEN3EAN kể lại hành trình của những hạt cà phê Điện Biên và Tây Bắc qua từng câu chuyện."
-        image={img("waterfallForest", { w: 1920 })}
-      />
+      <PageHero {...hero} />
 
       <section className="bg-cream py-24">
         <div className="container-page">
