@@ -192,7 +192,6 @@ export default function Home() {
             <div>
               <SectionLabel>Showroom</SectionLabel>
               <h2 className="section-heading max-w-xl">Điểm trải nghiệm của Dien3ean</h2>
-              <p className="mt-4 max-w-md text-sm leading-relaxed text-ink-soft">Điểm đến gần bạn.</p>
             </div>
             <Button to="/showroom" variant="outline">
               Xem tất cả địa điểm ↗
